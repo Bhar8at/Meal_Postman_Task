@@ -264,15 +264,50 @@ func extractxlsx() map[string][]string {
 
 }
 
+func askday() string {
+	var day string
+	days := []string{"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"}
+	for {
+		fmt.Print("Enter day: ")
+		fmt.Scanln(&day)
+
+		for _, i := range days {
+			if i == strings.ToUpper(day) {
+				return day
+			}
+		}
+
+		fmt.Println("\n The Day you've entered is incorrect !")
+		fmt.Printf("\n")
+
+	}
+
+}
+
+func askmeal() string {
+	var meal string
+	meals := []string{"BREAKFAST", "LUNCH", "DINNER"}
+	for {
+		fmt.Print("Enter meal of the day: ")
+		fmt.Scanln(&meal)
+
+		for _, i := range meals {
+			if i == strings.ToUpper(meal) {
+				return meal
+			}
+		}
+
+		fmt.Println("\n The meal you've entered is incorrect !")
+		fmt.Printf("\n")
+	}
+}
+
 func finditemno(food map[string][]string) {
 
 	var day, meal string
 
-	fmt.Print("Enter day: ")
-	fmt.Scanln(&day)
-
-	fmt.Print("Enter meal: ")
-	fmt.Scanln(&meal)
+	day = askday()
+	meal = askmeal()
 
 	// Capitalize the strings
 	day = strings.ToUpper(day)
@@ -294,11 +329,8 @@ func showitems(food map[string][]string) {
 
 	var day, meal string
 
-	fmt.Print("Enter day: ")
-	fmt.Scanln(&day)
-
-	fmt.Print("Enter meal: ")
-	fmt.Scanln(&meal)
+	day = askday()
+	meal = askmeal()
 
 	// Capitalize the strings
 	day = strings.ToUpper(day)
@@ -320,11 +352,8 @@ func checkitem(food map[string][]string) {
 
 	var day, meal, item string
 
-	fmt.Print("Enter day: ")
-	fmt.Scanln(&day)
-
-	fmt.Print("Enter meal: ")
-	fmt.Scanln(&meal)
+	day = askday()
+	meal = askmeal()
 
 	// To Take item input from user . item can include more than one word
 
